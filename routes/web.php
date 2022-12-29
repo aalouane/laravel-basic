@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::controller(DemoController::class)->groupe(function(){
-    Route::get('/about', 'about')->name('about.page');
+Route::controller(DemoController::class)->group(function(){
+    Route::get('/about', 'about')->name('about.page')->middleware('check.age');
     Route::get('/contact', 'contact')->name('contact.page');
 });

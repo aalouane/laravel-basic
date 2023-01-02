@@ -66,16 +66,6 @@
                                 </div>
                             </div>
 
-                            <!-- Remember Me -->
-                            <div class="form-group mb-3 row">
-                                <div class="col-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="remember_me">
-                                        <label class="form-label ms-1" for="remember_me">{{ __('Remember me') }}</label>
-                                    </div>
-                                </div>
-                            </div>
-
                             <div class="form-group mb-3 text-center row mt-3 pt-1">
                                 <div class="col-12">
                                     <button class="btn btn-info w-100 waves-effect waves-light" type="submit">Log

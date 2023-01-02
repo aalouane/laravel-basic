@@ -50,7 +50,7 @@
                                 <div class="col-12">
                                     <input id="name" class="form-control" type="text" name="name" placeholder="Name"
                                         :value="old('name')" required autofocus />
-                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('name')" class="mt-2 text-red-100" />
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
                                 <div class="col-12">
                                     <input id="username" class="form-control" type="text" name="username"
                                         placeholder="Username" :value="old('username')" required autofocus />
-                                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('username')" class="mt-2 text-red-100" />
                                 </div>
                             </div>
 
@@ -68,6 +68,7 @@
                                 <div class="col-12">
                                     <input class="form-control" id="email" type="email" name="email" placeholder="Email"
                                         :value="old('email')" required>
+                                        <x-input-error :messages="$errors->get('email')" class="mt-2 text-red-100" />
                                 </div>
                             </div>
 
@@ -76,7 +77,7 @@
                                 <div class="col-12">
                                     <input class="form-control" id="password" type="password" name="password"
                                         placeholder="Password" required autocomplete="new-password">
-                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2 text-red-100" />
                                 </div>
                             </div>
 
@@ -84,19 +85,10 @@
                                 <div class="col-12">
                                     <input class="form-control" id="password_confirmation" type="password"
                                         name="password_confirmation" placeholder="Password Confirmation" required>
-                                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
+                                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2 text-red-100" />
                                 </div>
                             </div>
 
-                            <div class="form-group mb-3 row">
-                                <div class="col-12">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customCheck1">
-                                        <label class="form-label ms-1 fw-normal" for="customCheck1">I accept <a href="#"
-                                                class="text-muted">Terms and Conditions</a></label>
-                                    </div>
-                                </div>
-                            </div>
 
                             <div class="form-group text-center row mt-3 pt-1">
                                 <div class="col-12">
@@ -107,7 +99,7 @@
 
                             <div class="form-group mt-2 mb-0 row">
                                 <div class="col-12 mt-3 text-center">
-                                    <a href="pages-login.html" class="text-muted">Already have account?</a>
+                                    <a href="{{route('login')}}" class="text-muted">Already have account?</a>
                                 </div>
                             </div>
                         </form>

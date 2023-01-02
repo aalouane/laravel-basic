@@ -12,7 +12,8 @@
     <link rel="shortcut icon" href="{{asset('backend/assets/images/favicon.ico')}}">
 
     <!-- Bootstrap Css -->
-    <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+    <link href="{{asset('backend/assets/css/bootstrap.min.css')}}" id="bootstrap-style" rel="stylesheet"
+        type="text/css" />
     <!-- Icons Css -->
     <link href="{{asset('backend/assets/css/icons.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- App Css-->
@@ -30,8 +31,10 @@
                     <div class="text-center mt-4">
                         <div class="mb-3">
                             <a href="index.html" class="auth-logo">
-                                <img src="{{asset('backend/assets/images/logo-dark.png')}}" height="30" class="logo-dark mx-auto" alt="">
-                                <img src="{{asset('backend/assets/images/logo-light.png')}}" height="30" class="logo-light mx-auto" alt="">
+                                <img src="{{asset('backend/assets/images/logo-dark.png')}}" height="30"
+                                    class="logo-dark mx-auto" alt="">
+                                <img src="{{asset('backend/assets/images/logo-light.png')}}" height="30"
+                                    class="logo-light mx-auto" alt="">
                             </a>
                         </div>
                     </div>
@@ -39,23 +42,49 @@
                     <h4 class="text-muted text-center font-size-18"><b>Register</b></h4>
 
                     <div class="p-3">
-                        <form class="form-horizontal mt-3" action="index.html">
+                        <form class="form-horizontal mt-3" method="POST" action="{{ route('register') }}">
+                            @csrf
 
+                            <!-- Name -->
                             <div class="form-group mb-3 row">
                                 <div class="col-12">
-                                    <input class="form-control" type="email" required="" placeholder="Email">
+                                    <input id="name" class="form-control" type="text" name="name" placeholder="Name"
+                                        :value="old('name')" required autofocus />
+                                    <x-input-error :messages="$errors->get('name')" class="mt-2" />
+                                </div>
+                            </div>
+
+                            <!-- Username -->
+                            <div class="form-group mb-3 row">
+                                <div class="col-12">
+                                    <input id="username" class="form-control" type="text" name="username"
+                                        placeholder="Username" :value="old('username')" required autofocus />
+                                    <x-input-error :messages="$errors->get('username')" class="mt-2" />
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="form-group mb-3 row">
+                                <div class="col-12">
+                                    <input class="form-control" id="email" type="email" name="email" placeholder="Email"
+                                        :value="old('email')" required>
+                                </div>
+                            </div>
+
+                            <!-- Password -->
+                            <div class="form-group mb-3 row">
+                                <div class="col-12">
+                                    <input class="form-control" id="password" type="password" name="password"
+                                        placeholder="Password" required autocomplete="new-password">
+                                    <x-input-error :messages="$errors->get('password')" class="mt-2" />
                                 </div>
                             </div>
 
                             <div class="form-group mb-3 row">
                                 <div class="col-12">
-                                    <input class="form-control" type="text" required="" placeholder="Username">
-                                </div>
-                            </div>
-
-                            <div class="form-group mb-3 row">
-                                <div class="col-12">
-                                    <input class="form-control" type="password" required="" placeholder="Password">
+                                    <input class="form-control" id="password_confirmation" type="password"
+                                        name="password_confirmation" placeholder="Password Confirmation" required>
+                                    <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
                                 </div>
                             </div>
 

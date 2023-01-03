@@ -2,15 +2,17 @@
 
 @section('admin')
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+
 <div class="page-content">
     <div class="container-fluid">
-        
-        
-        <form action="">
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        
+
+
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+
+                    <form action="">
                         <div class="card-body">
 
                             <h4 class="card-title">Edit profile page</h4>
@@ -50,20 +52,39 @@
 
                             {{-- Show Profile Image --}}
                             <div class="row mb-3">
-                                <label for="image_profile" class="col-sm-2 col-form-label"></label>
+                                <label for="" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
-                                    <img class="rounded avatar-lg "
+                                    <img class="rounded avatar-lg " id="show_image_profile"
                                         src="{{asset('backend/assets/images/small/img-5.jpg')}}" alt="Card image cap">
                                 </div>
                             </div>
 
+                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Edit profile">
                         </div>
-                    </div>
-                </div> <!-- end col -->
-            </div> <!-- end row -->
-            <input type="submit" class="btn btn-info waves-effect waves-light" value="Edit profile">
-        </form>
+                    </form>
+
+                </div>
+            </div> <!-- end col -->
+        </div> <!-- end row -->
 
     </div>
 </div>
+
+
+<script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $("#image_profile").change(function(e){
+
+            var reader = FileReader();
+            reader.onload = function(e){
+                $("#show_image_profile").att('src', e.target.result);
+            }
+            reader.readAsDataUrl(e.target.files['0']);
+        })
+    });
+
+</script>
+
 @endsection

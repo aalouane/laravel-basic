@@ -16,8 +16,12 @@
                     @auth
                     <div class="card-body">
                         <h4 class="card-title">Name : {{$admindata->name}}</h4>
+                        <hr>
                         <h4 class="card-title">Username : {{$admindata->username}}</h4>
-                        <h4 class="card-title">Email : {{$admindata->email}}</h4>
+                        <hr>
+                        <h4 class="card-title">User Email : {{$admindata->email}}</h4>
+                        <hr>
+                        <a href="{{ route('profile.edit') }}" class="btn btn-info btn-rounded waves-effect waves-light"> Edit Profile</a>
 
                     </div>
 

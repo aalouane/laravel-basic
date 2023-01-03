@@ -35,9 +35,9 @@ class AdminController extends Controller
     
     public function editProfile()
     {
-        $adminData = Auth::user();
+        $editData = Auth::user();
 
-        return view('admin.admin_profile_edit', ['admindata'=>$adminData]);
+        return view('admin.admin_profile_edit', ['editdata'=>$editData]);
     }
     
 }

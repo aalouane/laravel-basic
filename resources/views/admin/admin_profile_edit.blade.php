@@ -12,10 +12,10 @@
             <div class="col-12">
                 <div class="card">
 
-                    <form action="">
-                        <div class="card-body">
+                    <div class="card-body">
 
-                            <h4 class="card-title">Edit profile page</h4>
+                        <h4 class="card-title">Edit profile page</h4>
+                        <form action="">
 
                             {{-- Edit Name --}}
                             <div class="row mb-3">
@@ -60,8 +60,8 @@
                             </div>
 
                             <input type="submit" class="btn btn-info waves-effect waves-light" value="Edit profile">
-                        </div>
-                    </form>
+                        </form>
+                    </div>
 
                 </div>
             </div> <!-- end col -->
@@ -72,17 +72,14 @@
 
 
 <script type="text/javascript">
-
     $(document).ready(function(){
-
         $("#image_profile").change(function(e){
-
-            var reader = FileReader();
+            var reader = new FileReader();
             reader.onload = function(e){
-                $("#show_image_profile").att('src', e.target.result);
+                $("#show_image_profile").attr('src', e.target.result);
             }
-            reader.readAsDataUrl(e.target.files['0']);
-        })
+            reader.readAsDataURL(e.target.files['0']);
+        });
     });
 
 </script>

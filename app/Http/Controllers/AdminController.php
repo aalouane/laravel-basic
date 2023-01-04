@@ -57,6 +57,7 @@ class AdminController extends Controller
 
             $file->move(public_path('upload/admin_image'), $filename);
         }
+
     }
     
 }

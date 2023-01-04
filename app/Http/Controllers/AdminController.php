@@ -25,6 +25,7 @@ class AdminController extends Controller
         return redirect('/login');
     }
 
+    // Show profile page
     public function profile()
     {
         $adminData = Auth::user();
@@ -32,12 +33,30 @@ class AdminController extends Controller
         return view('admin.admin_profile_view', ['admindata'=>$adminData]);
     }
     
-    
+    // Show Edit profile form
     public function editProfile()
     {
         $editData = Auth::user();
 
         return view('admin.admin_profile_edit', ['editdata'=>$editData]);
+    }
+
+    // Store edit profile form
+    public function storeProfile(Request $request) 
+    {
+        $user = Auth::user();
+       
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+
+        if($request->file('image_profile'))
+        {
+            $file = $request->file('image_profile');
+            $filename = date('YmdHi'). $file->getClientOriginalName();
+
+            $file->move(public_path('upload/admin_image'), $filename);
+        }
     }
     
 }

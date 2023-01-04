@@ -44,6 +44,15 @@ class AdminController extends Controller
     // Store edit profile form
     public function storeProfile(Request $request) 
     {
+        // validate data
+        $request->validate([
+            'name' => ['required', 'string', 'min:3'],
+            'username' => ['required', 'string', 'min:3'],
+            'email' => ['required', 'email'],
+        ]);
+
+        // we can  handle this in view see the laragig project
+
         $user_id = Auth::id();
         $user = User::find($user_id);
        

@@ -64,8 +64,8 @@
                 <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                     data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <img class="rounded-circle header-profile-user"
-                        src="{{asset('backend/assets/images/users/avatar-1.jpg')}}" alt="Header Avatar">
-                    <span class="d-none d-xl-inline-block ms-1">Julia</span>
+                        src="{{(!empty(Auth::user()->profile_image)) ? asset('upload/admin_images/'.Auth::user()->profile_image) : asset('upload/no_image.jpg')}}" alt="Header Avatar">
+                    <span class="d-none d-xl-inline-block ms-1">{{Auth::user()->name}}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">

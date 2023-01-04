@@ -21,7 +21,8 @@
                             <div class="row mb-3">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="{{ $editdata->name }}" id="name" name="name">
+                                    <input class="form-control" type="text" value="{{ $editdata->name }}" id="name"
+                                        name="name">
                                 </div>
                             </div>
 
@@ -38,7 +39,8 @@
                             <div class="row mb-3">
                                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="{{ $editdata->email }}" id="email"  name="email">
+                                    <input class="form-control" type="text" value="{{ $editdata->email }}" id="email"
+                                        name="email">
                                 </div>
                             </div>
 
@@ -55,7 +57,8 @@
                                 <label for="" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
                                     <img class="rounded avatar-lg " id="show_image_profile"
-                                        src="{{asset('backend/assets/images/small/img-5.jpg')}}" alt="Card image cap">
+                                        src="{{(!empty($admindata->profile_image)) ? asset('upload/admin_images/'.$admindata->profile_image) : asset('upload/no_image.jpg')}}"
+                                        alt="Card image cap">
                                 </div>
                             </div>
 

@@ -21,7 +21,7 @@
                             <div class="row mb-3">
                                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="{{ $editdata->name }}" id="name">
+                                    <input class="form-control" type="text" value="{{ $editdata->name }}" id="name" name="name">
                                 </div>
                             </div>
 
@@ -30,7 +30,7 @@
                                 <label for="username" class="col-sm-2 col-form-label">Username</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="text" value="{{ $editdata->username }}"
-                                        id="username">
+                                        id="username" name="username">
                                 </div>
                             </div>
 
@@ -38,7 +38,7 @@
                             <div class="row mb-3">
                                 <label for="email" class="col-sm-2 col-form-label">Email</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="{{ $editdata->email }}" id="email">
+                                    <input class="form-control" type="text" value="{{ $editdata->email }}" id="email"  name="email">
                                 </div>
                             </div>
 

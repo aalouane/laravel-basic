@@ -44,7 +44,8 @@ class AdminController extends Controller
     // Store edit profile form
     public function storeProfile(Request $request) 
     {
-        $user = Auth::user();
+        $user_id = Auth::id();
+        $user = User::find($user_id);
        
         $user->name = $request->name;
         $user->username = $request->username;
@@ -55,9 +56,13 @@ class AdminController extends Controller
             $file = $request->file('image_profile');
             $filename = date('YmdHi'). $file->getClientOriginalName();
 
-            $file->move(public_path('upload/admin_image'), $filename);
+            $file->move(public_path('upload/admin_images'), $filename);
+            $user->profile_image = $filename;
         }
 
+        $user->save();
+
+        return redirect()->route('admin.profile');
     }
     
 }

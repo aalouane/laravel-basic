@@ -9,7 +9,8 @@
             <div class="col-lg-4">
                 <div class="card">
                     <center style="margin-top: 20px">
-                        <img class="rounded-circle avatar-xl " src="{{asset('backend/assets/images/small/img-5.jpg')}}"
+                        <img class="rounded-circle avatar-xl "
+                            src="{{(!empty($admindata->profile_image)) ? asset('upload/admin_images/'.$admindata->profile_image) : asset('upload/no_image.jpg')}}"
                             alt="Card image cap">
                     </center>
 
@@ -21,7 +22,8 @@
                         <hr>
                         <h4 class="card-title">User Email : {{$admindata->email}}</h4>
                         <hr>
-                        <a href="{{ route('profile.edit') }}" class="btn btn-info btn-rounded waves-effect waves-light"> Edit Profile</a>
+                        <a href="{{ route('profile.edit') }}" class="btn btn-info btn-rounded waves-effect waves-light">
+                            Edit Profile</a>
 
                     </div>
 

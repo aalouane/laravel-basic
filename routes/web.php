@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\Route;
 // Frontend Routes
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Route::get('/', function(){
-    return view('frontend.main_master');
+    return view('frontend.index');
 });
 
 

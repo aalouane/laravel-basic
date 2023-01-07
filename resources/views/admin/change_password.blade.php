@@ -14,8 +14,9 @@
 
                     <div class="card-body">
 
-                        <h4 class="card-title">Change Password Page</h4>
-                        <form action="{{ route('profile.store')}}" method="POST">
+                        <h4 class="card-title">Change Password Page</h4><br> </br>
+
+                        <form action="{{ route('update.password')}}" method="POST">
                             @csrf
                             {{-- old Password --}}
                             <div class="row mb-3">

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -35,19 +36,19 @@ class AdminController extends Controller
     {
         $adminData = Auth::user();
 
-        return view('admin.admin_profile_view', ['admindata'=>$adminData]);
+        return view('admin.admin_profile_view', ['admindata' => $adminData]);
     }
-    
+
     // Show Edit profile form
     public function editProfile()
     {
         $editData = Auth::user();
 
-        return view('admin.admin_profile_edit', ['editdata'=>$editData]);
+        return view('admin.admin_profile_edit', ['editdata' => $editData]);
     }
 
     // Store edit profile form
-    public function storeProfile(Request $request) 
+    public function storeProfile(Request $request)
     {
         // validate data
         $request->validate([
@@ -60,15 +61,14 @@ class AdminController extends Controller
 
         $user_id = Auth::id();
         $user = User::find($user_id);
-       
+
         $user->name = $request->name;
         $user->username = $request->username;
         $user->email = $request->email;
 
-        if($request->file('image_profile'))
-        {
+        if ($request->file('image_profile')) {
             $file = $request->file('image_profile');
-            $filename = date('YmdHi'). $file->getClientOriginalName();
+            $filename = date('YmdHi') . $file->getClientOriginalName();
 
             $file->move(public_path('upload/admin_images'), $filename);
             $user->profile_image = $filename;
@@ -90,7 +90,21 @@ class AdminController extends Controller
         return view("admin.change_password");
     }
 
+    // Update the password
+    public function updatePassword(Request $request)
+    {
+        $formData  = $request->validate([
+            'oldpassword' => ['required'],
+            'password'    => ['required', 'min:6', 'confirmed'],
+        ]);
+        
+        $hashPassword = Auth::user()->password;
+        if(Hash::check($request->password, $hashPassword)) {
+            $user = User::find(Auth::id());
+            $user->password = bcrypt($request->password);
+            $user->save();
+        }
 
-    
+        return view("admin.change_password");
+    }
 }
-

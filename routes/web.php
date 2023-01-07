@@ -15,6 +15,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// Frontend Routes
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+Route::get('/', function(){
+    return view('frontend.main_master');
+});
+
+
+// End Frontend Routes
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+
+
+// Backend Routes
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Route::get('/dashboard', function () {
     return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -22,7 +36,7 @@ Route::get('/dashboard', function () {
 Route::controller(AdminController::class)->group(function(){
     Route::get('/admin/logout', 'destroy')->name('admin.logout');
     Route::get('/admin/profile', 'profile')->name('admin.profile');
-
+    
     Route::get('/edit/profile', 'editProfile')->name('profile.edit');
     Route::post('/store/profile', 'storeProfile')->name('profile.store');
     
@@ -32,6 +46,8 @@ Route::controller(AdminController::class)->group(function(){
 
 
 
+// End Backend Routes
+//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 
 

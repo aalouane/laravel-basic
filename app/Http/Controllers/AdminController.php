@@ -22,7 +22,12 @@ class AdminController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        $notification = array(
+            'message' => 'Admin Logout Successfully',
+            'alert-type' => 'success'
+        );
+
+        return redirect('/login')->with($notification);
     }
 
     // Show profile page
@@ -77,6 +82,12 @@ class AdminController extends Controller
         );
 
         return redirect()->route('admin.profile')->with($notification);
+    }
+
+    // Show the changePassword view
+    public function changePassword()
+    {
+        return view("admin.change_password");
     }
 
 

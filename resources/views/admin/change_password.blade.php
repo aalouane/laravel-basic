@@ -17,16 +17,31 @@
                         <h4 class="card-title">Change Password Page</h4>
                         <form action="{{ route('profile.store')}}" method="POST">
                             @csrf
-                            {{-- Edit Name --}}
+                            {{-- old Password --}}
                             <div class="row mb-3">
-                                <label for="name" class="col-sm-2 col-form-label">Name</label>
+                                <label for="oldpassword" class="col-sm-2 col-form-label">Old Password</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="text" value="" id="name"
-                                        name="name">
+                                    <input class="form-control" type="password" value="" id="oldpassword"
+                                        name="oldpassword">
                                 </div>
                             </div>
 
-                           
+                            {{-- old Password --}}
+                            <div class="row mb-3">
+                                <label for="password" class="col-sm-2 col-form-label">New Password</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="password" value="" id="password" name="password">
+                                </div>
+                            </div>
+
+                            {{-- old Password --}}
+                            <div class="row mb-3">
+                                <label for="confirm_password" class="col-sm-2 col-form-label">Confirm Password</label>
+                                <div class="col-sm-10">
+                                    <input class="form-control" type="password" value="" id="confirm_password" name="confirm_password">
+                                </div>
+                            </div>
+
                             <input type="submit" class="btn btn-info waves-effect waves-light" value="Change Password">
                         </form>
                     </div>

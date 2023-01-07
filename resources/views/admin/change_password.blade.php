@@ -16,6 +16,11 @@
 
                         <h4 class="card-title">Change Password Page</h4><br> </br>
 
+                        @if (count($errors))
+                            @foreach ($errors->all() as $error)
+                                <p class="alert alert-danger alert-dismissible fade show"> {{ $error}} </p>
+                            @endforeach
+                        @endif
                         <form action="{{ route('update.password')}}" method="POST">
                             @csrf
                             {{-- old Password --}}
@@ -24,6 +29,9 @@
                                 <div class="col-sm-10">
                                     <input class="form-control" type="password" value="" id="oldpassword"
                                         name="oldpassword">
+                                    @error('oldpassword')
+                                    <p class="text-red-500 text-xs mt-1"> Please enter your password </p>
+                                    @enderror
                                 </div>
                             </div>
 
@@ -32,14 +40,20 @@
                                 <label for="password" class="col-sm-2 col-form-label">New Password</label>
                                 <div class="col-sm-10">
                                     <input class="form-control" type="password" value="" id="password" name="password">
+                                    {{-- @error('password')
+                                    <p class="text-red-500 text-xs mt-1"> Please enter a valid name </p>
+                                    @enderror --}}
                                 </div>
                             </div>
 
                             {{-- old Password --}}
                             <div class="row mb-3">
-                                <label for="confirm_password" class="col-sm-2 col-form-label">Confirm Password</label>
+                                <label for="password_confirmation" class="col-sm-2 col-form-label">Confirm Password</label>
                                 <div class="col-sm-10">
-                                    <input class="form-control" type="password" value="" id="confirm_password" name="confirm_password">
+                                    <input class="form-control" type="password" value="" id="password_confirmation" name="password_confirmation">
+                                    {{-- @error('password_confiramtion')
+                                    <p class="text-red-500 text-xs mt-1"> Please enter a valid name </p>
+                                    @enderror --}}
                                 </div>
                             </div>
 

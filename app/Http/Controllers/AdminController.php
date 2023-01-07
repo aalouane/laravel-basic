@@ -103,8 +103,12 @@ class AdminController extends Controller
             $user = User::find(Auth::id());
             $user->password = bcrypt($request->password);
             $user->save();
+
+            session()->flash('message', 'Password Updated Successfully');
+            return redirect()->back();
         }
 
-        return view("admin.change_password");
+        session()->flash('message', 'Old password is not match');
+        return redirect()->back();
     }
 }

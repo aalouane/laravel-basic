@@ -93,22 +93,22 @@ class AdminController extends Controller
     // Update the password
     public function updatePassword(Request $request)
     {
-        $formData  = $request->validate([
+        $request->validate([
             'oldpassword' => ['required'],
             'password'    => ['required', 'min:6', 'confirmed'],
         ]);
         
         $hashPassword = Auth::user()->password;
-        if(Hash::check($request->password, $hashPassword)) {
+        if(Hash::check($request->oldpassword, $hashPassword)) {
             $user = User::find(Auth::id());
             $user->password = bcrypt($request->password);
             $user->save();
 
             session()->flash('message', 'Password Updated Successfully');
             return redirect()->back();
+        }else {
+            session()->flash('message', 'Old password is not match');
+            return redirect()->back();
         }
-
-        session()->flash('message', 'Old password is not match');
-        return redirect()->back();
     }
 }

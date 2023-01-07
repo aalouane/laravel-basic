@@ -29,9 +29,9 @@
                                 <div class="col-sm-10">
                                     <input class="form-control" type="password" value="" id="oldpassword"
                                         name="oldpassword">
-                                    @error('oldpassword')
+                                    {{-- @error('oldpassword')
                                     <p class="text-red-500 text-xs mt-1"> Please enter your password </p>
-                                    @enderror
+                                    @enderror --}}
                                 </div>
                             </div>
 

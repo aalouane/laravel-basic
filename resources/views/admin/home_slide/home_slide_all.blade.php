@@ -57,7 +57,7 @@
                                 <label for="" class="col-sm-2 col-form-label"></label>
                                 <div class="col-sm-10">
                                     <img class="rounded avatar-lg " id="show_home_slide"
-                                        src="{{(!empty($homeslide->home_slide)) ? asset('upload/slide_images/'.$homeslide->home_slide) : asset('upload/no_image.jpg')}}"
+                                        src="{{(!empty($homeslide->home_slide)) ? asset($homeslide->home_slide) : asset('upload/no_image.jpg')}}"
                                         alt="Card image cap">
                                 </div>
                             </div>

@@ -15,7 +15,7 @@
                     <div class="card-body">
 
                         <h4 class="card-title">Home Slide page</h4>
-                        <form action="{{ route('profile.store')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('update.slider', $homeslide->id)}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             {{-- Edit title --}}
                             <div class="row mb-3">

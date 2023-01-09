@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class HomeSliderController extends Controller
 {
     public function homeSlider() {
-        $homeslider = HomeSlide::find(1);
-        return view('admin.home_slide.home_slide_all', ['homeslider'=>$homeslider]);
+        $homeslide = HomeSlide::find(1);
+        return view('admin.home_slide.home_slide_all', ['homeslide'=>$homeslide]);
     }
 }

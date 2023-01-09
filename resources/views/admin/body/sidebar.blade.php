@@ -16,9 +16,15 @@
                 </li>
 
                 <li>
-                    <a href="{{ route('home.slider')}}" class="waves-effect">
-                        <i class="ri-dashboard-line"></i><span>Home Slider Setup</span>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
+                        <i class="ri-layout-3-line"></i>
+                        <span>Home Slide Setup</span>
                     </a>
+                    <ul class="sub-menu" >
+                        <li>
+                            <a href="{{ route('home.slide')}}" class="">Home Slide</a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li>

@@ -14,8 +14,8 @@
 
                     <div class="card-body">
 
-                        <h4 class="card-title">Home Slide page</h4>
-                        <form action="{{ route('update.slider', $aboutpage->id)}}" method="POST"
+                        <h4 class="card-title">About Page</h4>
+                        <form action="{{ route('update.about', $aboutpage->id)}}" method="POST"
                             enctype="multipart/form-data">
                             @csrf
                             {{-- Edit title --}}
@@ -40,7 +40,7 @@
                             <div class="row mb-3">
                                 <label for="short_description" class="col-sm-2 col-form-label">Short description</label>
                                 <div class="col-sm-10">
-                                    <textarea id="short_description" class="form-control" maxlength="225" rows="3">
+                                    <textarea id="short_description" name="short_description" class="form-control" rows="3">
                                         {{$aboutpage->short_description}}
                                     </textarea>
                                 </div>
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
 
-                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Update slide">
+                            <input type="submit" class="btn btn-info waves-effect waves-light" value="Update About Page">
                         </form>
                     </div>
 

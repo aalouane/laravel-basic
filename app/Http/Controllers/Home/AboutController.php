@@ -62,6 +62,7 @@ class AboutController extends Controller
     // Show The home about page
     public function homeAbout()
     {
-        return view('frontend.home_about');
+        $aboutpage = About::find(1);
+        return view('frontend.home_about', ['aboutpage' => $aboutpage]);
     }
 }

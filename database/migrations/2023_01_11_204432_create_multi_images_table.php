@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('multi_images', function (Blueprint $table) {
             $table->id();
-            $table->string('mutli_image')->nullable();
+            $table->string('multi_image')->nullable();
             $table->timestamps();
         });
     }

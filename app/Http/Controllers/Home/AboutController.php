@@ -24,9 +24,9 @@ class AboutController extends Controller
             $image = $request->file('about_image');
             $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
 
-            Image::make($image)->resize(636, 852)->save('upload/about_image/' . $name_gen);
+            Image::make($image)->resize(503, 602)->save('upload/home_about/' . $name_gen);
 
-            $save_url = 'upload/about_image/' . $name_gen;
+            $save_url = 'upload/home_about/' . $name_gen;
 
             $aboutPage->update([
                 'title' => $request->title,

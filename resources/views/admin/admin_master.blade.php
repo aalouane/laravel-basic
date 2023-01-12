@@ -136,9 +136,16 @@
 
     <!--tinymce js-->
     <script src="{{asset('backend/assets/libs/tinymce/tinymce.min.js')}}"></script>
-    
+
     <!-- init js -->
     <script src="{{asset('backend/assets/js/pages/form-editor.init.js')}}"></script>
+
+    {{-- TODO:  Soufiane ! we can use if condition to costomize the loading file depending the page route --}}
+    <!-- Required datatable js -->
+    <script src="assets/libs/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="assets/libs/datatables.net-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <!-- Datatable init js -->
+    <script src="assets/js/pages/datatables.init.js"></script>
 </body>
 
 </html>

@@ -60,6 +60,8 @@ Route::controller(AboutController::class)->group(function () {
     
     Route::get('/about/image', 'AboutMultiImage')->name('about.multi.image');
     Route::post('/store/multi/image', 'storeMultImage')->name('store.multi.image');
+    
+    Route::get('/all/multi/image', 'allMultImage')->name('all.multi.image');
 });
 
 

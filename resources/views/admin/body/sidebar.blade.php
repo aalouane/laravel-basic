@@ -36,6 +36,7 @@
                         <li>
                             <a href="{{ route('about.page')}}" class="">About Page</a>
                             <a href="{{ route('about.multi.image')}}" class="">Multi Images</a>
+                            <a href="{{ route('all.multi.image')}}" class="">All Multi Images</a>
                         </li>
                     </ul>
                 </li>

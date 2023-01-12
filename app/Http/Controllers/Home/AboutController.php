@@ -79,8 +79,6 @@ class AboutController extends Controller
     {
         $images = $request->mutli_image;
 
-        // dd($images);
-
         foreach($images as $mutli_image)
         {
             $name_gen = hexdec(uniqid()) . '.' . $mutli_image->getClientOriginalExtension();
@@ -102,5 +100,12 @@ class AboutController extends Controller
         );
 
         return redirect()->back()->with($notification);
+    }
+
+    // Show the all multi image page
+    public function allMultImage()
+    {
+        $allmultiimage = MultiImage::all();
+        return view('admin.about_page.all_multiimage', ['allmultiimage' => $allmultiimage]);
     }
 }

@@ -141,6 +141,7 @@ class AboutController extends Controller
     // Delete multi image
     public function deleteMultiImage(MultiImage $image, Request $request)
     {
+        unlink($image->multi_image);
         MultiImage::destroy($image->id);
 
         $notification = array(

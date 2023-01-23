@@ -41,6 +41,19 @@
                     </ul>
                 </li>
 
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
+                        <i class="ri-layout-3-line"></i>
+                        <span>Portfolio Page Setup</span>
+                    </a>
+                    <ul class="sub-menu">
+                        <li>
+                            <a href="{{ route('all.portfolio')}}" class="">All Portfolio</a>
+                            <a href="{{ route('add.portfolio')}}" class="">Add Portfolio</a>
+                        </li>
+                    </ul>
+                </li>
+
                 <li class="menu-title">Pages</li>
 
                 <li>

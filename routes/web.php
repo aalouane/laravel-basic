@@ -5,6 +5,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
+use App\Http\Controllers\Home\PortfolioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,6 +68,10 @@ Route::controller(AboutController::class)->group(function () {
     Route::get('/delete/multi/image/{image}', 'deleteMultiImage')->name('delete.multi.image');
 });
 
+
+Route::controller(PortfolioController::class)->group(function () {
+    Route::get('/all/portfolio', 'allPortfolio')->name('all.portfolio');
+});
 
 
 // End Backend Routes

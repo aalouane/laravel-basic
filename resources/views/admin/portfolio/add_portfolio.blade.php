@@ -59,8 +59,7 @@
               <div class="row mb-3">
                 <label for="" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <img class="rounded avatar-lg " id="show_image"
-                    src="{{ asset('upload/no_image.jpg')}}"
+                  <img class="rounded avatar-lg " id="show_image" src="{{ asset('upload/no_image.jpg')}}"
                     alt="Card image cap">
                 </div>
               </div>

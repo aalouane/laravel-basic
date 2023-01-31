@@ -106,7 +106,7 @@ class PortfolioController extends Controller
         'portfolio_title' => $request->title,
         'portfolio_description' => $request->description,
       ]);
-
+      
       $notification = array(
         'message' => 'Portfolio updated without image Successfully',
         'alert-type' => 'success'

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Portfolio;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class PortfolioController extends Controller
 {
@@ -40,10 +41,10 @@ class PortfolioController extends Controller
     $save_url = 'upload/portfolio/' . $name_gen;
 
     Portfolio::insert([
-      'name' => $request->name,
-      'title' => $request->title,
-      'description' => $request->description,
-      'image' => $save_url,
+      'portfolio_name' => $request->name,
+      'portfolio_title' => $request->title,
+      'portfolio_description' => $request->description,
+      'portfolio_image' => $save_url,
       'created_at' => Carbon::now(),
     ]);
 

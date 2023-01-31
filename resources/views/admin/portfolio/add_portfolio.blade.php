@@ -22,10 +22,10 @@
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
                   <input class="form-control" type="text" value="" id="name" name="name">
+                  @error('name')
+                  <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </div>
-                @error('name')
-                 <span class="text-danger">{{ $message }}</span>   
-                @enderror
               </div>
 
               {{-- Edit title --}}
@@ -33,10 +33,10 @@
                 <label for="title" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
                   <input class="form-control" type="text" value="" id="title" name="title">
+                  @error('title')
+                  <span class="text-danger">{{ $message }}</span>
+                  @enderror
                 </div>
-                @error('title')
-                <span class="text-danger">{{ $message }}</span>
-                @enderror
               </div>
 
               {{-- Edit Long Description --}}

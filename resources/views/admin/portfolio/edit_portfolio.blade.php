@@ -14,14 +14,14 @@
 
           <div class="card-body">
 
-            <h4 class="card-title">Add Portfolio Page</h4>
-            <form action="{{ route('store.portfolio')}}" method="POST" enctype="multipart/form-data">
+            <h4 class="card-title">Edot Portfolio Page</h4>
+            <form action="{{ route('update.portfolio', ['portfolio'=>])}}" method="POST" enctype="multipart/form-data">
               @csrf
               {{-- Edit Name --}}
               <div class="row mb-3">
                 <label for="name" class="col-sm-2 col-form-label">Name</label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" value="" id="name" name="name">
+                  <input class="form-control" type="text" value="{{$portfolio->portfolio_name}}" id="name" name="name">
                   @error('name')
                   <span class="text-danger">{{ $message }}</span>
                   @enderror
@@ -32,7 +32,7 @@
               <div class="row mb-3">
                 <label for="title" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" value="" id="title" name="title">
+                  <input class="form-control" type="text" value="{{$portfolio->portfolio_title}}" id="title" name="title">
                   @error('title')
                   <span class="text-danger">{{ $message }}</span>
                   @enderror
@@ -43,7 +43,9 @@
               <div class="row mb-3">
                 <label for="elem1" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
-                  <textarea id="elm1" name="description"></textarea>
+                  <textarea id="elm1" name="description">
+                    {{$portfolio->portfolio_description}}
+                  </textarea>
                 </div>
               </div>
 
@@ -60,12 +62,12 @@
                 <label for="" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
                   <img class="rounded avatar-lg " id="show_image"
-                    src="{{ asset('upload/no_image.jpg')}}"
+                    src="{{(!empty($portfolio->portfolio_image)) ? asset($portfolio->portfolio_image) : asset('upload/no_image.jpg')}}"
                     alt="Card image cap">
                 </div>
               </div>
 
-              <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert Portfolio Page">
+              <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Portfolio Page">
             </form>
           </div>
 

@@ -21,7 +21,7 @@ use App\Http\Controllers\Home\PortfolioController;
 // Frontend Routes
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Route::get('/', function () {
-    return view('frontend.index');
+  return view('frontend.index');
 });
 
 
@@ -33,47 +33,50 @@ Route::get('/', function () {
 // Backend Routes
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 Route::get('/dashboard', function () {
-    return view('admin.index');
+  return view('admin.index');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::controller(AdminController::class)->group(function () {
-    Route::get('/admin/logout', 'destroy')->name('admin.logout');
-    Route::get('/admin/profile', 'profile')->name('admin.profile');
+  Route::get('/admin/logout', 'destroy')->name('admin.logout');
+  Route::get('/admin/profile', 'profile')->name('admin.profile');
 
-    Route::get('/edit/profile', 'editProfile')->name('profile.edit');
-    Route::post('/store/profile', 'storeProfile')->name('profile.store');
+  Route::get('/edit/profile', 'editProfile')->name('profile.edit');
+  Route::post('/store/profile', 'storeProfile')->name('profile.store');
 
-    Route::get('/change/password', 'changePassword')->name('change.password');
-    Route::post('/update/password', 'updatePassword')->name('update.password');
+  Route::get('/change/password', 'changePassword')->name('change.password');
+  Route::post('/update/password', 'updatePassword')->name('update.password');
 });
 
 
 Route::controller(HomeSliderController::class)->group(function () {
-    Route::get('/home/slider', 'homeSlider')->name('home.slide');
-    Route::post('/update/slider/{homeslider}', 'updateSlider')->name('update.slider');
+  Route::get('/home/slider', 'homeSlider')->name('home.slide');
+  Route::post('/update/slider/{homeslider}', 'updateSlider')->name('update.slider');
 });
 
 
 Route::controller(AboutController::class)->group(function () {
-    Route::get('/about/page', 'aboutPage')->name('about.page');
-    Route::post('/update/about/{aboutPage}', 'updatePage')->name('update.about');
-    Route::get('/about', 'homeAbout')->name('home.about');
-    
-    Route::get('/about/image', 'AboutMultiImage')->name('about.multi.image');
-    
-    Route::post('/store/multi/image', 'storeMultImage')->name('store.multi.image');
-    
-    Route::get('/all/multi/image', 'allMultImage')->name('all.multi.image');
-    Route::get('/edit/multi/image/{image}', 'editMultiImage')->name('edit.multi.image');
-    Route::post('/update/multi/image/{image}', 'updateMultiImage')->name('update.multi.image');
-    Route::get('/delete/multi/image/{image}', 'deleteMultiImage')->name('delete.multi.image');
+  Route::get('/about/page', 'aboutPage')->name('about.page');
+  Route::post('/update/about/{aboutPage}', 'updatePage')->name('update.about');
+  Route::get('/about', 'homeAbout')->name('home.about');
+
+  Route::get('/about/image', 'AboutMultiImage')->name('about.multi.image');
+
+  Route::post('/store/multi/image', 'storeMultImage')->name('store.multi.image');
+
+  Route::get('/all/multi/image', 'allMultImage')->name('all.multi.image');
+  Route::get('/edit/multi/image/{image}', 'editMultiImage')->name('edit.multi.image');
+  Route::post('/update/multi/image/{image}', 'updateMultiImage')->name('update.multi.image');
+  Route::get('/delete/multi/image/{image}', 'deleteMultiImage')->name('delete.multi.image');
 });
 
 
 Route::controller(PortfolioController::class)->group(function () {
-    Route::get('/all/portfolio', 'allPortfolio')->name('all.portfolio');
-    Route::get('/add/portfolio', 'addPortfolio')->name('add.portfolio');
-    Route::post('/store/portfolio', 'storePortfolio')->name('store.portfolio');
+  Route::get('/all/portfolio', 'allPortfolio')->name('all.portfolio');
+  Route::get('/add/portfolio', 'addPortfolio')->name('add.portfolio');
+  Route::post('/store/portfolio', 'storePortfolio')->name('store.portfolio');
+  Route::get('/edit/portfolio/{portfolio}', 'editPortfolio')->name('edit.portfolio');
+  Route::post('/update/portfolio/{portfolio}', 'updatePortfolio')->name('update.portfolio');
+  Route::get('/delete/portfolio/{portfolio}', 'deletePortfolio')->name('delete.portfolio');
 });
 
 

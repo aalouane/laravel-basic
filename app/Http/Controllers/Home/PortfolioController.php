@@ -55,4 +55,49 @@ class PortfolioController extends Controller
 
     return redirect()->route('all.portfolio')->with($notification);
   }
+  
+  // show the portfolio edit page
+  public function editPortfolio(Portfolio $portfolio)
+  {
+    return view('admin.portfolio.edit_portfolio', ['portfolio' => $portfolio]);
+  }
+
+  // Update portfolio
+  public function updatePortfolio(Request $request, Portfolio $portfolio)
+  {
+    $request->validate(
+      [
+        'name' => 'required',
+        'title' => 'required',
+        'image' => 'required'
+      ],
+      [
+        'name.required' => 'Portfolio name is required',
+        'title.required' => 'Portfolio title is required',
+      ]
+    );
+
+    $image = $request->file('image');
+    $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+
+    Image::make($image)->resize(1020, 519)->save('upload/portfolio/' . $name_gen);
+
+    $save_url = 'upload/portfolio/' . $name_gen;
+
+    $portfolio->update([
+      'portfolio_name' => $request->name,
+      'portfolio_title' => $request->title,
+      'portfolio_description' => $request->description,
+      'portfolio_image' => $save_url,
+      'created_at' => Carbon::now(),
+    ]);
+
+    $notification = array(
+      'message' => 'Portfolio updated Successfully',
+      'alert-type' => 'success'
+    );
+
+    return redirect()->route('all.portfolio')->with($notification);
+  }
+
 }

@@ -60,6 +60,7 @@ Route::controller(AboutController::class)->group(function () {
     Route::get('/about', 'homeAbout')->name('home.about');
     
     Route::get('/about/image', 'AboutMultiImage')->name('about.multi.image');
+    
     Route::post('/store/multi/image', 'storeMultImage')->name('store.multi.image');
     
     Route::get('/all/multi/image', 'allMultImage')->name('all.multi.image');
@@ -71,6 +72,8 @@ Route::controller(AboutController::class)->group(function () {
 
 Route::controller(PortfolioController::class)->group(function () {
     Route::get('/all/portfolio', 'allPortfolio')->name('all.portfolio');
+    Route::get('/add/portfolio', 'addPortfolio')->name('add.portfolio');
+    Route::get('/store/portfolio', 'storePortfolio')->name('store.portfolio');
 });
 
 

@@ -14,8 +14,8 @@
 
           <div class="card-body">
 
-            <h4 class="card-title">Edot Portfolio Page</h4>
-            <form action="{{ route('update.portfolio', ['portfolio'=>])}}" method="POST" enctype="multipart/form-data">
+            <h4 class="card-title">Edit Portfolio Page</h4>
+            <form action="{{ route('update.portfolio', ['portfolio'=>$portfolio->id])}}" method="POST" enctype="multipart/form-data">
               @csrf
               {{-- Edit Name --}}
               <div class="row mb-3">
@@ -53,7 +53,7 @@
               <div class="row mb-3">
                 <label for="image" class="col-sm-2 col-form-label">Image</label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="file" id="image" name="image">
+                  <input class="form-control" type="file" id="image" name="image" value="{{$portfolio->portfolio_image}}">
                 </div>
               </div>
 

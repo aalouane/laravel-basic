@@ -1,4 +1,6 @@
 when i try to access  a dashboard page, fix the filter auth
+Attempt to read property "name" on null ==> if we lost connection we have to redirect to login page
+
 
 dashboard -> add_portfolio : while adding image
 Unsupported image type directory. GD driver is only able to decode JPG, PNG, GIF, BMP or WebP files.

@@ -10,11 +10,11 @@
       <div class="row justify-content-center">
         <div class="col-xl-6 col-lg-8 col-md-10">
           <div class="breadcrumb__wrap__content">
-            <h2 class="title">Case Details</h2>
+            <h2 class="title">{{ $portfolio->portfolio_title }}</h2>
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">Details</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $portfolio->portfolio_name }}</li>
               </ol>
             </nav>
           </div>
@@ -23,12 +23,12 @@
     </div>
     <div class="breadcrumb__wrap__icon">
       <ul>
-        <li><img src="assets/img/icons/breadcrumb_icon01.png" alt=""></li>
-        <li><img src="assets/img/icons/breadcrumb_icon02.png" alt=""></li>
-        <li><img src="assets/img/icons/breadcrumb_icon03.png" alt=""></li>
-        <li><img src="assets/img/icons/breadcrumb_icon04.png" alt=""></li>
-        <li><img src="assets/img/icons/breadcrumb_icon05.png" alt=""></li>
-        <li><img src="assets/img/icons/breadcrumb_icon06.png" alt=""></li>
+        <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon01.png') }}" alt=""></li>
+        <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon02.png') }}" alt=""></li>
+        <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon03.png') }}" alt=""></li>
+        <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon04.png') }}" alt=""></li>
+        <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon05.png') }}" alt=""></li>
+        <li><img src="{{ asset('frontend/assets/img/icons/breadcrumb_icon06.png') }}" alt=""></li>
       </ul>
     </div>
   </section>
@@ -40,40 +40,18 @@
       <div class="row">
         <div class="col-lg-8">
           <div class="services__details__thumb">
-            <img src="assets/img/images/services_details01.jpg" alt="">
+            <img src="{{ asset($portfolio->portfolio_image)}}" alt="">
           </div>
           <div class="services__details__content">
-            <h2 class="title">Rixelda - 24 hours Control room landing page</h2>
-            <p>Definition: Business strategy can be understood as the course of action or set of decisions which assist
-              the
-              entrepreneurs in achieving specific business objectives.</p>
-            <p>It is nothing but a master plan that the management of a company implements to secure a competitive
-              position in the market, carry on its operations, please customers and achieve the desired ends of the
-              business.</p>
-            <p>In business, it is the long-range sketch of the desired image, direction and destination of the
-              organization. It is a scheme of corporate intent and action, which is carefully planned and flexibly
-              designed with the purpose of</p>
-            <ul class="services__details__list">
-              <li>Achieving effectiveness,</li>
-              <li>Perceiving and utilizing opportunities,</li>
-              <li>Mobilising resources,</li>
-              <li>Securing an advantageous position,</li>
-              <li>Meeting challenges and threats,</li>
-              <li>Directing efforts and behaviour and</li>
-              <li>Gaining command over the situation.</li>
-            </ul>
-            <p>A business strategy is a set of competitive moves and actions that a business uses to attract customers,
-              compete
-              successfully, strengthening performance, and achieve organizational goals. It outlines how business should
-              be carried
-              out to reach the desired ends</p>
+            <h2 class="title">{{$portfolio->portfolio_title}}</h2>
+            {!! $portfolio->portfolio_description !!}
             <div class="services__details__img">
               <div class="row">
                 <div class="col-sm-6">
-                  <img src="assets/img/images/services_details02.jpg" alt="">
+                  <img src="{{asset('frontend/assets/img/images/services_details02.jpg')}}" alt="">
                 </div>
                 <div class="col-sm-6">
-                  <img src="assets/img/images/services_details03.jpg" alt="">
+                  <img src="{{asset('frontend/assets/img/images/services_details03.jpg')}}" alt="">
                 </div>
               </div>
             </div>

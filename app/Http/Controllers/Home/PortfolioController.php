@@ -128,4 +128,12 @@ class PortfolioController extends Controller
 
     return redirect()->back()->with($notification);
   }
+
+
+  // go to the details portfolio page
+  public function detailsPortfolio(Portfolio $portfolio)
+  {
+    return view('frontend.portfolio_details', ['portfolio'=>$portfolio]);
+  }
+
 }

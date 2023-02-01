@@ -1,1 +1,4 @@
 when i try to access  a dashboard page, fix the filter auth
+
+dashboard -> add_portfolio : while adding image
+Unsupported image type directory. GD driver is only able to decode JPG, PNG, GIF, BMP or WebP files.

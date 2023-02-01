@@ -82,12 +82,12 @@ Route::controller(PortfolioController::class)->group(function () {
 });
 
 Route::controller(BlogCategoryController::class)->group(function () {
-  Route::get('/all/blog_category', 'allBlogCategory')->name('all.blog_category');
-  Route::get('/add/blog_category', 'addBlogCategory')->name('add.blog_category');
-  // Route::post('/store/portfolio', 'storePortfolio')->name('store.portfolio');
-  // Route::get('/edit/portfolio/{portfolio}', 'editPortfolio')->name('edit.portfolio');
+  Route::get('/all/blog/category', 'allBlogCategory')->name('all.blog.category');
+  Route::get('/add/blog/category', 'addBlogCategory')->name('add.blog.category');
+  Route::post('/store/blog/category', 'storeBlogCategory')->name('store.blog.category');
+  Route::get('/edit/blog/category/{blogcategory}', 'editBlogCategory')->name('edit.blog.category');
   // Route::post('/update/portfolio/{portfolio}', 'updatePortfolio')->name('update.portfolio');
-  // Route::get('/delete/portfolio/{portfolio}', 'deletePortfolio')->name('delete.portfolio');
+  Route::get('/delete/blog/category/{blogcategory}', 'deleteBlogCategory')->name('delete.blog.category');
   // Route::get('/portfolio/details/{portfolio}', 'detailsPortfolio')->name('portfolio.details');
 });
 

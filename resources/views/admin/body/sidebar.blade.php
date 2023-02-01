@@ -53,6 +53,19 @@
                         </li>
                     </ul>
                 </li>
+
+                <li>
+                    <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
+                      <i class="ri-layout-3-line"></i>
+                      <span>Blog Category</span>
+                    </a>
+                    <ul class="sub-menu">
+                      <li>
+                        <a href="{{ route('all.blog_ctegory')}}" class="">All Blog Category</a>
+                        <a href="{{ route('add.blog_ctegory')}}" class="">Add Blog Category</a>
+                      </li>
+                    </ul>
+                  </li>
                 
 
                 <li class="menu-title">Pages</li>

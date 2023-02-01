@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BlogCategoryController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
@@ -80,6 +81,17 @@ Route::controller(PortfolioController::class)->group(function () {
   Route::get('/portfolio/details/{portfolio}', 'detailsPortfolio')->name('portfolio.details');
 });
 
+Route::controller(BlogCategoryController::class)->group(function () {
+  Route::get('/all/blog_category', 'allBlogCategory')->name('all.blog_category');
+  Route::get('/add/blog_category', 'addBlogCategory')->name('add.blog_category');
+  // Route::post('/store/portfolio', 'storePortfolio')->name('store.portfolio');
+  // Route::get('/edit/portfolio/{portfolio}', 'editPortfolio')->name('edit.portfolio');
+  // Route::post('/update/portfolio/{portfolio}', 'updatePortfolio')->name('update.portfolio');
+  // Route::get('/delete/portfolio/{portfolio}', 'deletePortfolio')->name('delete.portfolio');
+  // Route::get('/portfolio/details/{portfolio}', 'detailsPortfolio')->name('portfolio.details');
+});
+
+// all . blog_ctegory
 
 // End Backend Routes
 //++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

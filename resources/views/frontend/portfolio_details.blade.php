@@ -43,26 +43,10 @@
             <img src="{{ asset($portfolio->portfolio_image)}}" alt="">
           </div>
           <div class="services__details__content">
+
             <h2 class="title">{{$portfolio->portfolio_title}}</h2>
             {!! $portfolio->portfolio_description !!}
-            <div class="services__details__img">
-              <div class="row">
-                <div class="col-sm-6">
-                  <img src="{{asset('frontend/assets/img/images/services_details02.jpg')}}" alt="">
-                </div>
-                <div class="col-sm-6">
-                  <img src="{{asset('frontend/assets/img/images/services_details03.jpg')}}" alt="">
-                </div>
-              </div>
-            </div>
-            <h2 class="small-title">Nature of Business Strategy</h2>
-            <p>A business strategy is a combination of proactive actions on the part of management, for the purpose of
-              enhancing the company’s market position and overall performance and reactions to unexpected developments
-              and new market.</p>
-            <p>The maximum part of the company’s present strategy is a result of formerly initiated actions and business
-              approaches, but when market conditions take an unanticipated turn, the company requires a strategic
-              reaction to cope with contingencies. Hence, for unforeseen development, a part of the business strategy is
-              formulated as a reasoned response nature of business strategy.</p>
+
           </div>
         </div>
         <div class="col-lg-4">

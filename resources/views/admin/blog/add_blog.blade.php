@@ -23,7 +23,7 @@
           <div class="card-body">
 
             <h4 class="card-title">Add Blog Page</h4>
-            <form action="{{ route('store.portfolio')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('store.blog')}}" method="POST" enctype="multipart/form-data">
               @csrf
               {{-- Edit Name --}}
               <div class="row mb-3">

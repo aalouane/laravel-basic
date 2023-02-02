@@ -31,7 +31,10 @@
                 <div class="col-sm-10">
                   <select class="form-select" aria-label="Default select example" name="blog_category">
                     <option selected="">Open this select menu</option>
-                    <option value="1">One</option>
+                    @foreach ($categories as $cat)
+                      <option value="{{$cat->id}}">{{$cat->blogcategory_name}}</option>
+
+                    @endforeach
                   </select>
                 </div>
               </div>

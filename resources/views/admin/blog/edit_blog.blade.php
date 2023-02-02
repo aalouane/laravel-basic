@@ -32,7 +32,7 @@
                   <select class="form-select" aria-label="Default select example" name="blog_category">
                     <option selected="">Open this select menu</option>
                     @foreach ($categories as $cat)
-                    <option value="{{$cat->id}}">{{$cat->blogcategory_name}}</option>
+                    <option value="{{$cat->id}}" {{ $cat->id == $blog->blog_category_id ? 'selected' : '' }}>{{$cat->blogcategory_name}}</option>
 
                     @endforeach
                   </select>

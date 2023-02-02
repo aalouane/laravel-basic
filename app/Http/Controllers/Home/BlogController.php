@@ -129,6 +129,7 @@ class BlogController extends Controller
   public function deleteBlog(Blog $blog)
   {
     Blog::destroy($blog->id);
+    unlink($blog->blog_image);
 
     $notification = array(
       'message' => 'Blog deleted Successfully',

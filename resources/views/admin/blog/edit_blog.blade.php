@@ -22,8 +22,8 @@
 
           <div class="card-body">
 
-            <h4 class="card-title">Add Blog Page</h4>
-            <form action="{{ route('store.blog')}}" method="POST" enctype="multipart/form-data">
+            <h4 class="card-title">Edit Blog Page</h4>
+            <form action="{{ route('update.blog', $blog->id)}}" method="POST" enctype="multipart/form-data">
               @csrf
               {{-- Edit Name --}}
               <div class="row mb-3">
@@ -32,7 +32,7 @@
                   <select class="form-select" aria-label="Default select example" name="blog_category">
                     <option selected="">Open this select menu</option>
                     @foreach ($categories as $cat)
-                      <option value="{{$cat->id}}">{{$cat->blogcategory_name}}</option>
+                    <option value="{{$cat->id}}">{{$cat->blogcategory_name}}</option>
 
                     @endforeach
                   </select>
@@ -43,7 +43,7 @@
               <div class="row mb-3">
                 <label for="title" class="col-sm-2 col-form-label">Title</label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" value="" id="title" name="title">
+                  <input class="form-control" type="text" value="{{$blog->blog_title}}" id="title" name="title">
                   @error('title')
                   <span class="text-danger">{{ $message }}</span>
                   @enderror
@@ -54,7 +54,8 @@
               <div class="row mb-3">
                 <label for="tags" class="col-sm-2 col-form-label">Tags</label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" value="php,javascript" name="blog_tags" data-role="tagsinput">
+                  <input class="form-control" type="text" value="{{$blog->blog_tags}}" name="blog_tags"
+                    data-role="tagsinput">
                 </div>
               </div>
 
@@ -62,7 +63,9 @@
               <div class="row mb-3">
                 <label for="elem1" class="col-sm-2 col-form-label">Description</label>
                 <div class="col-sm-10">
-                  <textarea id="elm1" name="description"></textarea>
+                  <textarea id="elm1" name="description">
+                    {!! $blog->blog_description !!}
+                  </textarea>
                 </div>
               </div>
 
@@ -70,7 +73,7 @@
               <div class="row mb-3">
                 <label for="image" class="col-sm-2 col-form-label">Image</label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="file" id="image" name="image">
+                  <input class="form-control" type="file" id="image" name="image" >
                 </div>
               </div>
 
@@ -78,12 +81,13 @@
               <div class="row mb-3">
                 <label for="" class="col-sm-2 col-form-label"></label>
                 <div class="col-sm-10">
-                  <img class="rounded avatar-lg " id="show_image" src="{{ asset('upload/no_image.jpg')}}"
+                  <img class="rounded avatar-lg " id="show_image"
+                    src="{{!empty($blog->blog_image) ? asset($blog->blog_image) : asset('upload/no_image.jpg') }}"
                     alt="Card image cap">
                 </div>
               </div>
 
-              <input type="submit" class="btn btn-info waves-effect waves-light" value="Insert Blog Page">
+              <input type="submit" class="btn btn-info waves-effect waves-light" value="Update Blog Page">
             </form>
           </div>
 

@@ -69,19 +69,18 @@ class BlogController extends Controller
   public function editBlog(Blog $blog)
   {
     $categories = BlogCategory::orderBy('blogcategory_name', 'ASC')->get();
-    return view('admin.blog.edit_blog', ['blogcategory' => $categories, 'blog' => $blog]);
+    return view('admin.blog.edit_blog', ['categories' => $categories, 'blog' => $blog]);
   }
 
 
   public function updateBlog(Request $request, Blog $blog)
   {
 
-    // dd("qsldkfjj");
     $request->validate(
       [
         'title' => 'required',
         'blog_category' => 'required',
-        'image' => 'required'
+        // 'image' => 'required'
       ],
       [
         'title.required' => 'The blog title is required',
@@ -90,25 +89,49 @@ class BlogController extends Controller
       ]
     );
 
-    $image = $request->file('image');
-    $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+    // dd($blog);
+    if ($request->file('image')) {
+      $image = $request->file('image');
+      $name_gen = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
 
-    Image::make($image)->resize(430, 327)->save('upload/blog' . $name_gen);
-    $save_url = 'upload/blog' . $name_gen;
+      Image::make($image)->resize(430, 327)->save('upload/blog' . $name_gen);
+      $save_url = 'upload/blog' . $name_gen;
 
-    $blog->update(
-      [
-        'blog_category_id' => $request->blog_category,
-        'blog_title' => $request->title,
-        'blog_tags' => $request->tags,
-        'blog_image' => $save_url,
-        'blog_description' => $request->description,
-        'created_at' => Carbon::now()
-      ]
-    );
+      $blog->update(
+        [
+          'blog_category_id' => $request->blog_category,
+          'blog_title' => $request->title,
+          'blog_tags' => $request->tags,
+          'blog_image' => $save_url,
+          'blog_description' => $request->description,
+        ]
+      );
+    } else {
+
+      $blog->update(
+        [
+          'blog_category_id' => $request->blog_category,
+          'blog_title' => $request->title,
+          'blog_tags' => $request->tags,
+          'blog_description' => $request->description,
+        ]
+      );
+    }
 
     $notification = array(
       'message' => 'Blog updated Successfully',
+      'alert-type' => 'success'
+    );
+
+    return redirect()->route('all.blog')->with($notification);
+  }
+
+  public function deleteBlog(Blog $blog)
+  {
+    Blog::destroy($blog->id);
+
+    $notification = array(
+      'message' => 'Blog deleted Successfully',
       'alert-type' => 'success'
     );
 

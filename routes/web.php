@@ -95,7 +95,7 @@ Route::controller(BlogCategoryController::class)->group(function () {
 Route::controller(BlogController::class)->group(function () {
   Route::get('/all/blog', 'allBlog')->name('all.blog');
   Route::get('/add/blog', 'addBlog')->name('add.blog');
-  // Route::post('/store/blog/category', 'storeBlogCategory')->name('store.blog.category');
+  Route::post('/store/blog', 'storeBlog')->name('store.blog');
   // Route::get('/edit/blog/category/{blogCategory}', 'editBlogCategory')->name('edit.blog.category');
   // Route::post('/update/blog/category/{blogCategory}', 'updateBlogCategory')->name('update.blog.category');
   // Route::get('/delete/blog/category/{blogCategory}', 'deleteBlogCategory')->name('delete.blog.category');

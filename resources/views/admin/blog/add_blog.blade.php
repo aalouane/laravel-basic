@@ -54,7 +54,7 @@
               <div class="row mb-3">
                 <label for="tags" class="col-sm-2 col-form-label">Tags</label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" value="php,javascript" name="ags" data-role="tagsinput">
+                  <input class="form-control" type="text" value="php,javascript" name="tags" data-role="tagsinput">
                 </div>
               </div>
 

@@ -138,4 +138,14 @@ class BlogController extends Controller
 
     return redirect()->route('all.blog')->with($notification);
   }
+
+  // Front end pages
+
+  // Show blog details page
+  public function blogDetails(Blog $blog)
+  {
+    return view('frontend.blog_detials', ['blog'=>$blog]);
+  }
+
+
 }

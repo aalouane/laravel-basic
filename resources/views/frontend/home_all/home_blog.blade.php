@@ -1,5 +1,5 @@
 @php
-$blogs = App\Models\Blog::latest()->get();
+$blogs = App\Models\Blog::latest()->limit(3)->get();
 @endphp
 
 <section class="blog">
@@ -22,7 +22,7 @@ $blogs = App\Models\Blog::latest()->get();
             {{-- <span class="date">13 january 2021</span> --}}
             <h3 class="title"><a href="blog-details.html">Facebook design is dedicated to what's new
                 in design</a></h3>
-            <a href="blog-details.html" class="read__more">Read mORe</a>
+            <a href="{{route('blog.details', $blog->id)}}" class="read__more">Read mORe</a>
           </div>
         </div>
       </div>

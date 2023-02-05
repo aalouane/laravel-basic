@@ -99,6 +99,8 @@ Route::controller(BlogController::class)->group(function () {
   Route::get('/edit/blog/{blog}', 'editBlog')->name('edit.blog');
   Route::post('/update/blog/{blog}', 'updateBlog')->name('update.blog');
   Route::get('/delete/blog/{blog}', 'deleteBlog')->name('delete.blog');
+
+  Route::get('/blog/details/{blog}', 'blogDetails')->name('blog.details');
   // Route::get('/portfolio/details/{portfolio}', 'detailsPortfolio')->name('portfolio.details');
 });
 

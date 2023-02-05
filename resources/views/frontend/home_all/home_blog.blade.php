@@ -14,11 +14,11 @@ $blogs = App\Models\Blog::latest()->get();
             <a href="blog-details.html"><img src="{{asset($blog->blog_image) }}"
                 alt=""></a>
             <div class="blog__post__tags">
-              <a href="blog.html">{{ $blog->tags}}</a>
+              <a href="blog.html">{{ $blog['category']['blogcategory_name']}}</a>
             </div>
           </div>
           <div class="blog__post__content">
-            <span class="date">{{$blog->created_at}}</span>
+            <span class="date">{{Carbon\Carbon::parse($blog->created_at)->diffForHumans()}}</span>
             {{-- <span class="date">13 january 2021</span> --}}
             <h3 class="title"><a href="blog-details.html">Facebook design is dedicated to what's new
                 in design</a></h3>

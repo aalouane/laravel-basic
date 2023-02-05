@@ -11,7 +11,7 @@ $blogs = App\Models\Blog::latest()->limit(3)->get();
       <div class="col-lg-4 col-md-6 col-sm-9">
         <div class="blog__post__item">
           <div class="blog__post__thumb">
-            <a href="blog-details.html"><img src="{{asset($blog->blog_image) }}"
+            <a href="{{route('blog.details', $blog->id)}}"><img src="{{asset($blog->blog_image) }}"
                 alt=""></a>
             <div class="blog__post__tags">
               <a href="blog.html">{{ $blog['category']['blogcategory_name']}}</a>
@@ -20,7 +20,7 @@ $blogs = App\Models\Blog::latest()->limit(3)->get();
           <div class="blog__post__content">
             <span class="date">{{Carbon\Carbon::parse($blog->created_at)->diffForHumans()}}</span>
             {{-- <span class="date">13 january 2021</span> --}}
-            <h3 class="title"><a href="blog-details.html">Facebook design is dedicated to what's new
+            <h3 class="title"><a href="{{route('blog.details', $blog->id)}}">Facebook design is dedicated to what's new
                 in design</a></h3>
             <a href="{{route('blog.details', $blog->id)}}" class="read__more">Read mORe</a>
           </div>

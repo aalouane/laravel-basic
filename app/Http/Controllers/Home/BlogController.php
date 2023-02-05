@@ -144,7 +144,7 @@ class BlogController extends Controller
   // Show blog details page
   public function blogDetails(Blog $blog)
   {
-    return view('frontend.blog_detials', ['blog'=>$blog]);
+    return view('frontend.blog_details', ['blog'=>$blog]);
   }
 
 

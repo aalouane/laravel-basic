@@ -41,16 +41,17 @@
         <div class="col-lg-8">
           <div class="standard__blog__post">
             <div class="standard__blog__thumb">
-              <img src="assets/img/blog/blog_thumb01.jpg" alt="">
+              <img src="{{asset($blog->blog_image)}}" alt="">
             </div>
             <div class="blog__details__content services__details__content">
               <ul class="blog__post__meta">
-                <li><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($blog->created_at)->diffForHumans()}}</li>
+                <li><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($blog->created_at)->diffForHumans()}}
+                </li>
                 {{-- <li><i class="fal fa-comments-alt"></i> <a href="#">Comment (08)</a></li> --}}
                 {{-- <li class="post-share"><a href="#"><i class="fal fa-share-all"></i> (18)</a></li> --}}
               </ul>
               <h2 class="title">{{$blog->blog_title}}</h2>
-              {!! $blog->blog_description   !!}
+              {!! $blog->blog_description !!}
             </div>
             <div class="blog__details__bottom">
               <ul class="blog__details__tag">
@@ -215,56 +216,21 @@
             <div class="widget">
               <h4 class="widget-title">Recent Blog</h4>
               <ul class="rc__post">
+
+                @foreach ($allblogs as $blog)
+
                 <li class="rc__post__item">
                   <div class="rc__post__thumb">
-                    <a href="blog-details.html"><img src="assets/img/blog/rc_thumb01.jpg" alt=""></a>
+                    <a href="{{route('blog.details', $blog->id)}}"><img src="{{asset($blog->blog_image)}}"
+                        alt=""></a>
                   </div>
                   <div class="rc__post__content">
-                    <h5 class="title"><a href="blog-details.html">Best website traffick booster with
-                        great tools.</a></h5>
-                    <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
+                    <h5 class="title"><a href="{{route('blog.details', $blog->id)}}">{{$blog->blog_title}}</a></h5>
+                    <span class="post-date"><i class="fal fa-calendar-alt"></i> {{ Carbon\Carbon::parse($blog->created_at)->diffForHumans()}}</span>
                   </div>
                 </li>
-                <li class="rc__post__item">
-                  <div class="rc__post__thumb">
-                    <a href="blog-details.html"><img src="assets/img/blog/rc_thumb02.jpg" alt=""></a>
-                  </div>
-                  <div class="rc__post__content">
-                    <h5 class="title"><a href="blog-details.html">How to become a best sale marketer
-                        in a year!</a></h5>
-                    <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
-                  </div>
-                </li>
-                <li class="rc__post__item">
-                  <div class="rc__post__thumb">
-                    <a href="blog-details.html"><img src="assets/img/blog/rc_thumb03.jpg" alt=""></a>
-                  </div>
-                  <div class="rc__post__content">
-                    <h5 class="title"><a href="blog-details.html">Google take latest step & catch the
-                        black SEO</a></h5>
-                    <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
-                  </div>
-                </li>
-                <li class="rc__post__item">
-                  <div class="rc__post__thumb">
-                    <a href="blog-details.html"><img src="assets/img/blog/rc_thumb04.jpg" alt=""></a>
-                  </div>
-                  <div class="rc__post__content">
-                    <h5 class="title"><a href="blog-details.html">Businesses are thriving societies. Time for urgent
-                        change</a></h5>
-                    <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
-                  </div>
-                </li>
-                <li class="rc__post__item">
-                  <div class="rc__post__thumb">
-                    <a href="blog-details.html"><img src="assets/img/blog/rc_thumb05.jpg" alt=""></a>
-                  </div>
-                  <div class="rc__post__content">
-                    <h5 class="title"><a href="blog-details.html">TikTok influencer marketing:How to
-                        work with influencer</a></h5>
-                    <span class="post-date"><i class="fal fa-calendar-alt"></i> 28 january 2021</span>
-                  </div>
-                </li>
+                @endforeach
+
               </ul>
             </div>
             <div class="widget">

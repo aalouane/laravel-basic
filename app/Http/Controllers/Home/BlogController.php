@@ -144,7 +144,8 @@ class BlogController extends Controller
   // Show blog details page
   public function blogDetails(Blog $blog)
   {
-    return view('frontend.blog_details', ['blog'=>$blog]);
+    $allblogs = Blog::latest()->limit(5)->get();
+    return view('frontend.blog_details', ['blog'=>$blog, 'allblogs'=>$allblogs]);
   }
 
 

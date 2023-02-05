@@ -145,8 +145,11 @@ class BlogController extends Controller
   public function blogDetails(Blog $blog)
   {
     $allblogs = Blog::latest()->limit(5)->get();
-    return view('frontend.blog_details', ['blog'=>$blog, 'allblogs'=>$allblogs]);
+    $categories = BlogCategory::orderBy('blogcategory_name', 'ASC')->get();
+    return view('frontend.blog_details', [
+      'blog' => $blog,
+      'allblogs' => $allblogs,
+      'categories' => $categories
+    ]);
   }
-
-
 }

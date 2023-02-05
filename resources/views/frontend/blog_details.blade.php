@@ -1,7 +1,10 @@
 @extends('frontend.main_master')
-
 @section('content')
 
+
+@php
+  $tags = explode(',', $blog->blog_tags);
+@endphp
 <main>
 
   <!-- breadcrumb-area -->
@@ -57,10 +60,10 @@
               <ul class="blog__details__tag">
                 <li class="title">Tag:</li>
                 <li class="tags-list">
-                  <a href="#">Business</a>
-                  <a href="#">Design</a>
-                  <a href="#">apps</a>
-                  <a href="#">data</a>
+                  @foreach ($tags as $tag)
+                      
+                  <a href="#">{{$tag}}</a>
+                  @endforeach
                 </li>
               </ul>
               <ul class="blog__details__social">
@@ -236,14 +239,11 @@
             <div class="widget">
               <h4 class="widget-title">Categories</h4>
               <ul class="sidebar__cat">
-                <li class="sidebar__cat__item"><a href="blog.html">Web Design (6)</a></li>
-                <li class="sidebar__cat__item"><a href="blog.html">Web Development (4)</a></li>
-                <li class="sidebar__cat__item"><a href="blog.html">Product Design (9)</a></li>
-                <li class="sidebar__cat__item"><a href="blog.html">Animation (6)</a></li>
-                <li class="sidebar__cat__item"><a href="blog.html">Ui/Ux Design (8)</a></li>
-                <li class="sidebar__cat__item"><a href="blog.html">Branding Design (12)</a></li>
-                <li class="sidebar__cat__item"><a href="blog.html">Web Design (6)</a></li>
-                <li class="sidebar__cat__item"><a href="blog.html">Logo Design (6)</a></li>
+                @foreach ($categories as $category)
+                <li class="sidebar__cat__item"><a href="blog.html">{{$category->blogcategory_name}}</a></li>
+                @endforeach
+               
+                {{-- <li class="sidebar__cat__item"><a href="blog.html">Web Design (6)</a></li> --}}
               </ul>
             </div>
             <div class="widget">
@@ -270,17 +270,9 @@
             <div class="widget">
               <h4 class="widget-title">Popular Tags</h4>
               <ul class="sidebar__tags">
-                <li><a href="blog.html">Business</a></li>
-                <li><a href="blog.html">Design</a></li>
-                <li><a href="blog.html">apps</a></li>
-                <li><a href="blog.html">landing page</a></li>
-                <li><a href="blog.html">data</a></li>
-                <li><a href="blog.html">website</a></li>
-                <li><a href="blog.html">book</a></li>
-                <li><a href="blog.html">Design</a></li>
-                <li><a href="blog.html">product design</a></li>
-                <li><a href="blog.html">landing page</a></li>
-                <li><a href="blog.html">data</a></li>
+                @foreach ($tags as $tag)
+                  <li><a href="blog.html">{{$tag}}</a></li>
+                @endforeach
               </ul>
             </div>
           </aside>

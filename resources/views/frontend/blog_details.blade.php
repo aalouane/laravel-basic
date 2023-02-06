@@ -240,7 +240,7 @@
               <h4 class="widget-title">Categories</h4>
               <ul class="sidebar__cat">
                 @foreach ($categories as $category)
-                <li class="sidebar__cat__item"><a href="blog.html">{{$category->blogcategory_name}}</a></li>
+                <li class="sidebar__cat__item"><a href="{{route("category.blogs", $category->id)}}">{{$category->blogcategory_name}}</a></li>
                 @endforeach
                
                 {{-- <li class="sidebar__cat__item"><a href="blog.html">Web Design (6)</a></li> --}}

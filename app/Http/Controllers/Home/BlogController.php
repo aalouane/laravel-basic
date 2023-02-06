@@ -152,4 +152,10 @@ class BlogController extends Controller
       'categories' => $categories
     ]);
   }
+
+  public function categoryBlogs(BlogCategory $blogCategory)
+  {
+    $blogs = Blogs::where('blog_category_id', $blogCategory->id)->orderBy('id', 'DESC')->get();
+    return view('frontend.cat_blog_details', ['blogs' => $blogs]);
+  }
 }

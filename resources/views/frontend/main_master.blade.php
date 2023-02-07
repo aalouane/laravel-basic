@@ -43,7 +43,7 @@
   <!-- main-area -->
   <main>
 
-    @yield('content')
+    @yield('main')
 
   </main>
   <!-- main-area-end -->

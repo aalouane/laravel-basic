@@ -1,5 +1,5 @@
 @extends('frontend.main_master')
-@section('content')
+@section('main')
 
 <!-- banner-area -->
 @include('frontend.home_all.home_slide')

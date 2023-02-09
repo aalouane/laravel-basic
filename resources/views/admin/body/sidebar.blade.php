@@ -80,6 +80,18 @@
           </ul>
         </li>
 
+        <li>
+          <a href="javascript: void(0);" class="has-arrow waves-effect" aria-expanded="false">
+            <i class="ri-layout-3-line"></i>
+            <span>Footer Setup</span>
+          </a>
+          <ul class="sub-menu">
+            <li>
+              <a href="{{ route('footer')}}" class="">All Footer</a>
+            </li>
+          </ul>
+        </li>
+
 
         <li class="menu-title">Pages</li>
 

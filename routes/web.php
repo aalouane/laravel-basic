@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FooterController;
 use App\Http\Controllers\Home\BlogCategoryController;
 use App\Http\Controllers\Home\HomeSliderController;
 use App\Http\Controllers\Home\AboutController;
@@ -102,9 +103,15 @@ Route::controller(BlogController::class)->group(function () {
 
   Route::get('/blog/details/{blog}', 'blogDetails')->name('blog.details');
   Route::get('/category/blogs/{blogCategory}', 'categoryBlogs')->name('category.blogs');
-  
+
   Route::get('/home/blog', 'homeBlog')->name('home.blog');
   // Route::get('/portfolio/details/{portfolio}', 'detailsPortfolio')->name('portfolio.details');
+});
+
+
+Route::controller(FooterController::class)->group(function () {
+  Route::get('/footer', 'footerPage')->name('footer');
+  Route::post('/update/footer/{footer}', 'updateFooter')->name('update.footer');
 });
 
 // all . blog_ctegory

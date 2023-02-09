@@ -9,5 +9,5 @@ class Footer extends Model
 {
     use HasFactory;
 
-    private $guarded = [];
+    protected $guarded = [];
 }

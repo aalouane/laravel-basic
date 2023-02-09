@@ -20,7 +20,6 @@ return new class extends Migration
       $table->string('country')->nullable();
       $table->string('adress')->nullable();
       $table->string('email')->nullable();
-      $table->string('socially_connect')->nullable();
       $table->string('facebook')->nullable();
       $table->string('twitter')->nullable();
       $table->string('behance')->nullable();

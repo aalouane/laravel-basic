@@ -11,7 +11,7 @@ class FooterController extends Controller
   public function footerPage()
   {
     $footer = Footer::first()->get()[0];
-    return view('admin.footer.footer', ['footer'=>$footer]);
+    return view('admin.footer.footer', ['footer' => $footer]);
   }
 
 
@@ -26,7 +26,6 @@ class FooterController extends Controller
       'email' => $request->email,
       'country' => $request->country,
       'adress' => $request->adress,
-      'socially_connect' => $request->socially_connect,
       'facebook' => $request->facebook,
       'twitter' => $request->twitter,
       'linkedin' => $request->linkedin,
@@ -42,5 +41,6 @@ class FooterController extends Controller
 
     return redirect()->back()->with($notification);
   }
+
 
 }

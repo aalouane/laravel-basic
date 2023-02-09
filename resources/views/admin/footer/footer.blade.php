@@ -69,17 +69,6 @@
                 </div>
               </div>
 
-              {{-- Edit socially_connected --}}
-              <div class="row mb-3">
-                <label for="socially_connect" class="col-sm-2 col-form-label">Socially Connect</label>
-                <div class="col-sm-10">
-                  <input class="form-control" type="text" value="{{ $footer->socially_connect }}" id="socially_connect" name="socially_connect">
-                  @error('socially_connect')
-                  <span class="text-danger">{{ $message }}</span>
-                  @enderror
-                </div>
-              </div>
-
               {{-- Edit face --}}
               <div class="row mb-3">
                 <label for="facebook" class="col-sm-2 col-form-label">Facebook</label>

@@ -128,7 +128,8 @@
               <div class="row mb-3">
                 <label for="copyright" class="col-sm-2 col-form-label">Copyright</label>
                 <div class="col-sm-10">
-                  <input class="form-control" type="text" value="{{ $footer->copyright }}" id="copyright" name="copyright">
+                  <input class="form-control" type="text" value="{{ $footer->copyright }}" id="copyright"
+                    name="copyright">
                   @error('copyright')
                   <span class="text-danger">{{ $message }}</span>
                   @enderror
